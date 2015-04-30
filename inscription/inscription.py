@@ -63,20 +63,35 @@ university()
 
 class degree(osv.osv):
 	""" Degree """
-	_name = "Degree"
+	_name = "degree"
 	_description = "Degree"
 	_colums = {
 		'name': fields.char('Name', size=100, required=True),
-		'description': fields.text('Description')
+		'description': fields.text('Description'),
+		'university': fields.many2one('university', 'University')
 	}
 degree()
 
 class speciality(osv.osv):
-	""" Degree """
-	_name = "Degree"
-	_description = "Degree"
+	""" speciality """
+	_name = "speciality"
+	_description = "speciality"
 	_colums = {
 		'name': fields.char('Name', size=100, required=True),
-		'description': fields.text('Description')
+		'description': fields.text('Description'),
+		'degree': fields.many2one('degree', 'Degree')
 	}
-degree()
+speciality()
+
+class reforme(osv.osv):
+	""" reforme """
+	_name = "reforme"
+	_description = "reforme"
+	_colums = {
+		'name': fields.char('Name', size=100, required=True),
+		'description': fields.text('Description'),
+		'speciality': fields.many2one('speciality', 'Speciality'),
+		'confirmation': fields.selection((('y','Confirmed') ,('n','Unconfirmed')), 'Status'),
+		'application': fields.selection((('y','Applicated') ,('n','Not Applicated')), 'application')
+	}
+reforme()

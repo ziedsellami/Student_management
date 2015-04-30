@@ -34,7 +34,7 @@ class inscription_university(osv.osv):
 		#'establishment': fields.many2one('establishment', 'Establishment')
 	}
 	_sql_constraints = [
-		('name', 'unique(name)', 'The abbreviation of the university must de unique'),
+		('abbreviation', 'unique(abbreviation)', 'The abbreviation of the university must de unique'),
 		('name', 'unique(name)', 'The name of the university must de unique')
 	]
 inscription_university()
@@ -48,6 +48,9 @@ class inscription_degree(osv.osv):
 		'description': fields.text('Description'),
 		#'university': fields.many2one('university', 'University')
 	}
+	_sql_constraints = [
+		('name', 'unique(name)', 'The name of the university must de unique')
+	]
 inscription_degree()
 
 class inscription_speciality(osv.osv):
@@ -86,6 +89,10 @@ class inscription_module(osv.osv):
 		'hours_number': fields.integer('Hours Number'),
 		'description': fields.text('Description')
 	}
+	_sql_constraints = [
+		('designation', 'unique(designation)', 'The abbreviation of the university must de unique'),
+		('id', 'unique(id)', 'The id of the university must de unique')
+	]
 inscription_module()
 
 class inscription_teaching_unit(osv.osv):

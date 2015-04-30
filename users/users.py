@@ -13,7 +13,8 @@ class users_person(osv.osv):
 		'last_name': fields.char('Last Name', size=100, required=True),
 		'adress': fields.text('Adress'),
 		'email': fields.char('Email Adress', size=100, required=True),
-		'phone' : fields.integer('Phone Number')
+		'phone' : fields.integer('Phone Number'),
+		
 	}
 	_sql_constraints = [
 		('name', 'unique(name)', 'The name of the establishment must de unique')
